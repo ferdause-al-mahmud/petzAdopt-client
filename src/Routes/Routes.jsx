@@ -6,6 +6,7 @@ import Register from "../Pages/Register/Register";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import DonationCampaign from "../Pages/DonationCampaign/DonationCampaign";
 import DonationDetails from "../Components/donationDetails/DonationDetails";
+import PetListing from "../Pages/PetListing/PetListing";
 
 export const router = createBrowserRouter([
   {
@@ -26,13 +27,17 @@ export const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: '/donation-campaign',
+        path: "/pet-listing",
+        element: <PetListing></PetListing>,
+      },
+      {
+        path: "/donation-campaign",
         element: <DonationCampaign></DonationCampaign>,
-    },
-    {
-      path: '/donation-campaign/:id',
-      element: <DonationDetails />,
-  },
+      },
+      {
+        path: "/donation-campaign/:id",
+        element: <DonationDetails />,
+      },
     ],
   },
 ]);
