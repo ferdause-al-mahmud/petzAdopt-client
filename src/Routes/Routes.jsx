@@ -5,6 +5,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import DonationCampaign from "../Pages/DonationCampaign/DonationCampaign";
+import DonationDetails from "../Components/donationDetails/DonationDetails";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
         path: '/donation-campaign',
         element: <DonationCampaign></DonationCampaign>,
     },
+    {
+      path: '/donation-campaign/:id',
+      element: <DonationDetails />,
+  },
     ],
   },
 ]);
