@@ -7,6 +7,8 @@ import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import DonationCampaign from "../Pages/DonationCampaign/DonationCampaign";
 import DonationDetails from "../Components/donationDetails/DonationDetails";
 import PetListing from "../Pages/PetListing/PetListing";
+import Dashboard from "../Layouts/Dashboard";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -18,14 +20,7 @@ export const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
       },
-      {
-        path: "/login",
-        element: <Login></Login>,
-      },
-      {
-        path: "/register",
-        element: <Register></Register>,
-      },
+
       {
         path: "/pet-listing",
         element: <PetListing></PetListing>,
@@ -39,5 +34,22 @@ export const router = createBrowserRouter([
         element: <DonationDetails />,
       },
     ],
+  },
+  {
+    path: "/login",
+    element: <Login></Login>,
+  },
+  {
+    path: "/register",
+    element: <Register></Register>,
+  },
+  {
+    path: "dashboard",
+    element: (
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    ),
+    children: [],
   },
 ]);
