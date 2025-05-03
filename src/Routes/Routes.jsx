@@ -9,6 +9,7 @@ import DonationDetails from "../Components/donationDetails/DonationDetails";
 import PetListing from "../Pages/PetListing/PetListing";
 import Dashboard from "../Layouts/Dashboard";
 import PrivateRoute from "./PrivateRoute";
+import AddPet from "../Pages/Dashboard/User/AddPet";
 
 export const router = createBrowserRouter([
   {
@@ -50,6 +51,15 @@ export const router = createBrowserRouter([
         <Dashboard />
       </PrivateRoute>
     ),
-    children: [],
+    children: [
+      {
+        index: true,
+        element: <AddPet />,
+    },
+    {
+        path: 'add-pet',
+        element: <AddPet />,
+    },
+    ],
   },
 ]);
