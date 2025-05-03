@@ -10,6 +10,7 @@ import PetListing from "../Pages/PetListing/PetListing";
 import Dashboard from "../Layouts/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import AddPet from "../Pages/Dashboard/User/AddPet";
+import PetCardDetails from "../Components/PetCardDetails/PetCardDetails";
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ export const router = createBrowserRouter([
         path: "/pet-listing",
         element: <PetListing></PetListing>,
       },
+      {
+        path: '/pet-details/:id',
+        element: <PetCardDetails></PetCardDetails>,
+    },
       {
         path: "/donation-campaign",
         element: <DonationCampaign></DonationCampaign>,
