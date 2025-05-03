@@ -1,15 +1,12 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
-import AdoptModal from "../Modals/AdoptModal";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import PetDetailSkeleton from "../Skeleton/PetDetailSkeleton";
 import useAuth from "../../hooks/useAuth";
 
 const PetCardDetails = () => {
 
-  const [showModal, setShowModal] = useState(false);
-    const [detailPet, setDetailPet] = useState([]);
+
     const { user } = useAuth();
     const { id } = useParams();
     const axiosSecure = useAxiosSecure();
@@ -49,10 +46,10 @@ const PetCardDetails = () => {
                         <div>
                             <button
                                 disabled={!user}
-                                onClick={() => {
-                                    setShowModal(true);
-                                    setDetailPet(petDetails);
-                                }}
+                                // onClick={() => {
+                                //     setShowModal(true);
+                                //     setDetailPet(petDetails);
+                                // }}
                                 className="btn w-full bg-[#ff946b] text-lg font-semibold rounded"
                             >
                                 Adopt
@@ -63,9 +60,9 @@ const PetCardDetails = () => {
 
                 </div>
             </section>
-            {showModal && <>
+            {/* {showModal && <>
                 <AdoptModal detailPet={detailPet} setShowModal={setShowModal}></AdoptModal>
-            </>}
+            </>} */}
         </div>
     );
 };
