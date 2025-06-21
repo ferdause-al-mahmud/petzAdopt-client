@@ -11,6 +11,7 @@ import Dashboard from "../Layouts/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import AddPet from "../Pages/Dashboard/User/AddPet";
 import PetCardDetails from "../Components/PetCardDetails/PetCardDetails";
+import CreateCampaign from "../Pages/Dashboard/User/CreateCampaign";
 
 export const router = createBrowserRouter([
   {
@@ -28,9 +29,9 @@ export const router = createBrowserRouter([
         element: <PetListing></PetListing>,
       },
       {
-        path: '/pet-details/:id',
+        path: "/pet-details/:id",
         element: <PetCardDetails></PetCardDetails>,
-    },
+      },
       {
         path: "/donation-campaign",
         element: <DonationCampaign></DonationCampaign>,
@@ -60,11 +61,15 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <AddPet />,
-    },
-    {
-        path: 'add-pet',
+      },
+      {
+        path: "add-pet",
         element: <AddPet />,
-    },
+      },
+      {
+        path: "create-campaign",
+        element: <CreateCampaign />,
+      },
     ],
   },
 ]);
