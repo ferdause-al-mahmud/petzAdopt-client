@@ -12,6 +12,7 @@ import PrivateRoute from "./PrivateRoute";
 import AddPet from "../Pages/Dashboard/User/AddPet";
 import PetCardDetails from "../Components/PetCardDetails/PetCardDetails";
 import CreateCampaign from "../Pages/Dashboard/User/CreateCampaign";
+import MyAddedPets from "../Pages/Dashboard/User/MyAddedPets";
 
 export const router = createBrowserRouter([
   {
@@ -65,6 +66,10 @@ export const router = createBrowserRouter([
       {
         path: "add-pet",
         element: <AddPet />,
+      },
+      {
+        path: 'added-pets',
+        element: <MyAddedPets />
       },
       {
         path: "create-campaign",
