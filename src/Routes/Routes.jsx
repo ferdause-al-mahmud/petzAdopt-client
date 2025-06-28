@@ -14,6 +14,7 @@ import PetCardDetails from "../Components/PetCardDetails/PetCardDetails";
 import CreateCampaign from "../Pages/Dashboard/User/CreateCampaign";
 import MyAddedPets from "../Pages/Dashboard/User/MyAddedPets";
 import MyDonationCampaigns from "../Pages/Dashboard/User/MyDonationCampaigns";
+import UpdateCampaign from "../Components/Dashboard/User/UpdateCampaign";
 import Updatepet from "../Components/Dashboard/User/Updatepet";
 
 export const router = createBrowserRouter([
@@ -73,10 +74,10 @@ export const router = createBrowserRouter([
         path: "added-pets",
         element: <MyAddedPets />,
       },
-        {
-                path: 'update-pet/:id',
-                element: <Updatepet />,
-            },
+      {
+        path: 'update-pet/:id',
+        element: <Updatepet />,
+      },
       {
         path: "create-campaign",
         element: <CreateCampaign />,
@@ -84,6 +85,10 @@ export const router = createBrowserRouter([
       {
         path: "donation-campaigns",
         element: <MyDonationCampaigns />,
+      },
+      {
+        path: 'update-campaign/:id',
+        element: <UpdateCampaign />,
       },
     ],
   },
