@@ -100,7 +100,7 @@ const DonationDetails = () => {
                   !user
                 }
                 onClick={() => setShowModal(true)}
-                className="btn bg-[#ff946b] text-white  md:mt-0"
+                className="btn bg-rose-100 !text-rose-900 text-white  md:mt-0"
               >
                 Donate Now
               </button>

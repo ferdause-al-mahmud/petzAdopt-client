@@ -18,6 +18,8 @@ import UpdateCampaign from "../Components/Dashboard/User/UpdateCampaign";
 import Updatepet from "../Components/Dashboard/User/Updatepet";
 import AdoptionRequests from "../Pages/Dashboard/User/AdoptionRequests";
 import MyDonations from "../Pages/Dashboard/User/MyDonations";
+import AdminRoute from "./AdminRoute";
+import AllCampaigns from "../Pages/Dashboard/Admin/AllCampaigns";
 
 export const router = createBrowserRouter([
   {
@@ -99,6 +101,17 @@ export const router = createBrowserRouter([
       {
         path: "adoption-requests",
         element: <AdoptionRequests />,
+      },
+
+      // admin routes
+
+      {
+        path: "all-donations",
+        element: (
+          <AdminRoute>
+            <AllCampaigns />
+          </AdminRoute>
+        ),
       },
     ],
   },
