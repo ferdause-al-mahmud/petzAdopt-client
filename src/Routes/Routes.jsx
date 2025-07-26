@@ -20,6 +20,7 @@ import AdoptionRequests from "../Pages/Dashboard/User/AdoptionRequests";
 import MyDonations from "../Pages/Dashboard/User/MyDonations";
 import AdminRoute from "./AdminRoute";
 import AllCampaigns from "../Pages/Dashboard/Admin/AllCampaigns";
+import AllUsers from "../Pages/Dashboard/Admin/AllUsers";
 
 export const router = createBrowserRouter([
   {
@@ -104,7 +105,14 @@ export const router = createBrowserRouter([
       },
 
       // admin routes
-
+      {
+        path: "all-users",
+        element: (
+          <AdminRoute>
+            <AllUsers />
+          </AdminRoute>
+        ),
+      },
       {
         path: "all-donations",
         element: (
