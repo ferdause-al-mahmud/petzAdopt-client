@@ -19,6 +19,8 @@ const Navbar = () => {
     setHamburgerOpen(false);
   };
 
+  console.log("user", user);
+
   const links = (
     <>
       <li>
