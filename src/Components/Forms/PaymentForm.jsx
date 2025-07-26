@@ -108,7 +108,7 @@ const PaymentForm = ({ setShowModal, campaign, refetch }) => {
           />
         </div>
         <button
-          className="btn bg-[#ff946b] mt-10"
+          className="btn bg-rose-100 !text-rose-900 mt-10"
           type="submit"
           disabled={!stripe || !clientSecret}
         >

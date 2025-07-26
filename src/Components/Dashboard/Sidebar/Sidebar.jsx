@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import useGetRole from "../../../hooks/useGetRole";
 import UserRoutes from "../../../hooks/UserRoutes";
+import AdminRoutes from "../../../hooks/AdminRoutes";
 
 const Sidebar = () => {
   const [isSideNavOpen, setIsSideNavOpen] = useState(false);
@@ -47,6 +48,7 @@ const Sidebar = () => {
           <div className="mt-4">
             <ul className="flex flex-1 flex-col gap-1 py-3">
               <UserRoutes />
+              {role === "admin" && <AdminRoutes />}
             </ul>
           </div>
         </nav>

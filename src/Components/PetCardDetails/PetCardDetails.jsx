@@ -64,7 +64,7 @@ const PetCardDetails = () => {
                   setShowModal(true);
                   setDetailPet(petDetails);
                 }}
-                className="btn w-full bg-[#ff946b] text-lg font-semibold rounded"
+                className="btn w-full bg-rose-100 !text-rose-900 text-lg font-semibold rounded"
               >
                 Adopt
               </button>

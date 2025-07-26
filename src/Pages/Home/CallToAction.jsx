@@ -55,7 +55,7 @@ const CallToAction = () => {
             alt="Pets Banner"
             className="w-full h-96 object-cover transform group-hover:scale-105 transition duration-500"
           />
-          <div className="absolute inset-0 bg-black bg-opacity-50 group-hover:bg-[#ff946b]/20 flex flex-col justify-center items-center text-center p-8 transition-all duration-500">
+          <div className="absolute inset-0 bg-black bg-opacity-50 group-hover:bg-rose-100 !text-rose-900/20 flex flex-col justify-center items-center text-center p-8 transition-all duration-500">
             <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:text-black mb-4">
               Make a Difference with Your Donation
             </h3>
@@ -89,7 +89,7 @@ const CallToAction = () => {
                 alt={card.title}
                 className="w-full h-96 object-cover transform group-hover:scale-105 transition duration-500"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-50 group-hover:bg-[#ff946b]/20 flex flex-col justify-center items-center text-center p-8 transition-all duration-500">
+              <div className="absolute inset-0 bg-black bg-opacity-50 group-hover:bg-rose-100 !text-rose-900/20 flex flex-col justify-center items-center text-center p-8 transition-all duration-500">
                 <h3 className="text-2xl font-bold text-white group-hover:text-black mb-4">
                   {card.title}
                 </h3>

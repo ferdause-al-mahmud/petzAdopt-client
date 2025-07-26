@@ -8,13 +8,14 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper/modules";
 import TestimonialsSkeleton from "../../Components/Skeleton/TestimonialsSkeleton";
-import { Star, User, Mail, MessageCircle, Send, Plus, X } from "lucide-react";
+import { Star, User, Mail, MessageCircle, Send, Plus, X, CheckCircle, Heart } from "lucide-react";
 
 const Testimonials = () => {
   const axiosCommon = useAxiosCommon();
   const queryClient = useQueryClient();
   const [showReviewForm, setShowReviewForm] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showThankYou, setShowThankYou] = useState(false);
   const [newReview, setNewReview] = useState({
     name: "",
     email: "",
@@ -38,7 +39,10 @@ const Testimonials = () => {
       return data;
     },
     onSuccess: () => {
+      // Invalidate and refetch testimonials
       queryClient.invalidateQueries(["testimonials"]);
+      
+      // Reset form
       setNewReview({
         name: "",
         email: "",
@@ -46,8 +50,16 @@ const Testimonials = () => {
         stars: 5,
         profile_picture: "",
       });
+      
+      // Show thank you message
+      setShowThankYou(true);
       setShowReviewForm(false);
       setIsSubmitting(false);
+      
+      // Hide thank you message after 5 seconds
+      setTimeout(() => {
+        setShowThankYou(false);
+      }, 5000);
     },
     onError: (error) => {
       console.error("Error submitting testimonial:", error);
@@ -75,6 +87,11 @@ const Testimonials = () => {
     };
 
     submitTestimonialMutation.mutate(testimonialData);
+  };
+
+  const handleNewReview = () => {
+    setShowReviewForm(!showReviewForm);
+    setShowThankYou(false);
   };
 
   const StarRating = ({ rating, interactive = false, onChange }) => {
@@ -111,7 +128,7 @@ const Testimonials = () => {
       {/* Add Review Button */}
       <div className="text-center mb-8">
         <button
-          onClick={() => setShowReviewForm(!showReviewForm)}
+          onClick={handleNewReview}
           className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 shadow-lg"
         >
           {showReviewForm ? (
@@ -127,6 +144,30 @@ const Testimonials = () => {
           )}
         </button>
       </div>
+
+      {/* Thank You Message */}
+      {showThankYou && (
+        <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-2xl shadow-xl p-8 mb-12 max-w-4xl mx-auto text-center">
+          <div className="flex justify-center mb-6">
+            <div className="bg-green-100 p-4 rounded-full">
+              <CheckCircle className="w-16 h-16 text-green-600" />
+            </div>
+          </div>
+          <h2 className="text-4xl font-bold text-gray-800 mb-4">
+            Thank You For Your Feedback!
+          </h2>
+          <p className="text-xl text-gray-600 mb-4">
+            We appreciate you taking the time to share your experience with PetzAdopt.
+          </p>
+          <p className="text-lg text-gray-500 flex items-center justify-center gap-2">
+            <Heart className="w-5 h-5 text-red-500" />
+            Your testimonial helps other pet lovers discover our platform
+          </p>
+          <div className="mt-6 text-sm text-gray-400">
+            This message will disappear in a few seconds...
+          </div>
+        </div>
+      )}
 
       {/* Review Submission Form */}
       {showReviewForm && (
@@ -277,7 +318,7 @@ const Testimonials = () => {
                 <SwiperSlide key={index}>
                   <section className="bg-gray-100 w-full text-gray-800">
                     <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24">
-                      <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
+                      <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-lg lg:text-left">
                         <img
                           src={testimonial.profile_picture}
                           alt={testimonial.name}
