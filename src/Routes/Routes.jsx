@@ -21,6 +21,7 @@ import MyDonations from "../Pages/Dashboard/User/MyDonations";
 import AdminRoute from "./AdminRoute";
 import AllCampaigns from "../Pages/Dashboard/Admin/AllCampaigns";
 import AllUsers from "../Pages/Dashboard/Admin/AllUsers";
+import AllPets from "../Pages/Dashboard/Admin/AllPets";
 
 export const router = createBrowserRouter([
   {
@@ -112,6 +113,14 @@ export const router = createBrowserRouter([
             <AllUsers />
           </AdminRoute>
         ),
+      },
+      {
+        path: 'all-pets',
+        element: (
+          <AdminRoute>
+            <AllPets />
+          </AdminRoute>
+          ),
       },
       {
         path: "all-donations",
