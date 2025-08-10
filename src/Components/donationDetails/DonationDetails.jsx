@@ -137,7 +137,7 @@ const DonationDetails = () => {
                   ${donatedAmount}
                 </div>
               </motion.div>
-              <motion.div
+              {/* <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.5 }}
@@ -147,7 +147,7 @@ const DonationDetails = () => {
                   Last Date of Donation:
                 </div>
                 <div>{lastDateOfDonation}</div>
-              </motion.div>
+              </motion.div> */}
             </div>
           </div>
         </motion.div>
